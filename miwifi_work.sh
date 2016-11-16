@@ -1,7 +1,7 @@
 #!/bin/sh
 #remove the driver before
 ifconfig ra0 down
-rmmod mt7601Usta
+modprobe -r mt7601Usta
 #add new ap driver
 modprobe rtutil7601Uap
 modprobe mt7601Uap

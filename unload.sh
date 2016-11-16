@@ -1,5 +1,6 @@
 #!/bin/sh
 ifconfig ra0 down
-rmmod mtnet7601Usta
-rmmod mt7601Usta
-rmmod mtutil7601Usta
+modprobe -r rtnet7601Uap
+modprobe -r mt7601Uap
+modprobe -r rtutil7601Uap
+modprobe -r mt7601Usta

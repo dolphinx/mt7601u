@@ -1034,6 +1034,9 @@ endif
 endif
 endif
 
+strip:
+	$(STRIP) --strip-unneeded --strip-debug $(MOD_NAME).ko
+
 install:
 	mkdir -pv $(DAT_PATH)
 	cp -v $(RT28xx_DIR)/../etc/Wireless/RT2870AP/$(DAT_FILE_NAME) $(DAT_PATH)/.
