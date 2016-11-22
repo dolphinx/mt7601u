@@ -663,7 +663,7 @@ get_seq:
 			}
 			else
 			{
-				printk("CmdRspNum = %d\n", GetCmdRspNum(pAd));
+				DBGPRINT(RT_DEBUG_OFF, ("CmdRspNum = %d\n", GetCmdRspNum(pAd)));
 				goto get_seq;
 			}
 		}

@@ -48,7 +48,7 @@ void DisplayTxAgg (RTMP_ADAPTER *pAd)
 		for (i=0; i<MAX_AGG_CNT; i++) {
 			DBGPRINT(RT_DEBUG_OFF, ("\t%d MPDU=%ld (%ld%%)\n", i+1, aggCnt[i+2], aggCnt[i+2]*100/totalCount));
 		}
-	printk("====================\n");
+	DBGPRINT(RT_DEBUG_OFF, ("====================\n"));
 
 }
 #endif /* DOT11_N_SUPPORT */

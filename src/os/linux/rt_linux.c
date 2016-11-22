@@ -1445,7 +1445,9 @@ static UINT32 RtmpOSWirelessEventTranslate(IN UINT32 eventType)
 #endif /* P2P_SUPPORT */
 
 	default:
+#ifdef DBG
 		printk("Unknown event: 0x%x\n", eventType);
+#endif /* DBG */
 		break;
 	}
 
@@ -1625,6 +1627,7 @@ void RtmpOSNetDevFree(PNET_DEV pNetDev)
 	kfree(pNetDev);
 #endif
 
+#ifdef DBG
 #ifdef VENDOR_FEATURE4_SUPPORT
 	printk("OS_NumOfMemAlloc = %ld, OS_NumOfMemFree = %ld\n",
 			OS_NumOfMemAlloc, OS_NumOfMemFree);
@@ -1633,6 +1636,7 @@ void RtmpOSNetDevFree(PNET_DEV pNetDev)
 	printk("OS_NumOfPktAlloc = %ld, OS_NumOfPktFree = %ld\n",
 			OS_NumOfPktAlloc, OS_NumOfPktFree);
 #endif /* VENDOR_FEATURE2_SUPPORT */
+#endif /* DBG */
 }
 
 INT RtmpOSNetDevAlloc(

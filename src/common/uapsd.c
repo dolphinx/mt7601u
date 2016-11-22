@@ -2035,7 +2035,9 @@ VOID UAPSD_UnTagFrame(
 						*/
 
 						/* de-queue packet here to speed up EOSP frame response */
+#ifdef UAPSD_DEBUG
 						printk("%s:: ----> RTMPDeQueuePacket\n", __FUNCTION__);
+#endif /* UAPSD_DEBUG */
 						RTMPDeQueuePacket(pAd, FALSE, NUM_OF_TX_RING, MAX_TX_PROCESS);
 					}
 					else

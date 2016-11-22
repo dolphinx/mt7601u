@@ -61,7 +61,9 @@ NDIS_STATUS	 RtmpMgmtTaskInit(
 	status = RtmpOSTaskAttach(pTask, RtmpTimerQThread, (ULONG)pTask);
 	if (status == NDIS_STATUS_FAILURE) 
 	{
+#ifdef DBG
 		printk (KERN_WARNING "%s: unable to start RtmpTimerQThread\n", RTMP_OS_NETDEV_GET_DEVNAME(pAd->net_dev));
+#endif /* DBG */
 		return NDIS_STATUS_FAILURE;
 	}
 	
@@ -71,7 +73,9 @@ NDIS_STATUS	 RtmpMgmtTaskInit(
 	status = RtmpOSTaskAttach(pTask, MlmeThread, (ULONG)pTask);
 	if (status == NDIS_STATUS_FAILURE) 
 	{
+#ifdef DBG
 		printk (KERN_WARNING "%s: unable to start MlmeThread\n", RTMP_OS_NETDEV_GET_DEVNAME(pAd->net_dev));
+#endif /* DBG */
 		return NDIS_STATUS_FAILURE;
 	}
 
@@ -81,7 +85,9 @@ NDIS_STATUS	 RtmpMgmtTaskInit(
 	status = RtmpOSTaskAttach(pTask, RTUSBCmdThread, (ULONG)pTask);
 	if (status == NDIS_STATUS_FAILURE) 
 	{
+#ifdef DBG
 		printk (KERN_WARNING "%s: unable to start RTUSBCmdThread\n", RTMP_OS_NETDEV_GET_DEVNAME(pAd->net_dev));
+#endif /* DBG */
 		return NDIS_STATUS_FAILURE;
 	}
 

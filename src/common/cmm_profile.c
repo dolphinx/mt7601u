@@ -5785,14 +5785,20 @@ VOID UpdateSkuRatePwr(
 	UCHAR	i;
 	CHAR	rate_table[18];
 
+#ifdef DBG
 	printk("channel = %d, bw = %d\n", channel, bw);
+#endif /* DBG */
 
 	for ( i = 0 ; i < 18; i++ )
 	{
 		sku_rate_pwr = GetSkuRatePwr(pAd, i, channel, bw);
+#ifdef DBG
 		printk("sku_rate_pwr = %d", sku_rate_pwr);
+#endif /* DBG */
 		sku_rate_pwr = sku_rate_pwr << 12;			// sku_rate_power * 4096
+#ifdef DBG
 		printk("\tsku_rate_pwr = %d\n", sku_rate_pwr);
+#endif /* DBG */
 
 		if ( i < SKU_PHYMODE_CCK_5M_11M )
 		{
@@ -5829,17 +5835,27 @@ VOID UpdateSkuRatePwr(
 
 		pa_mode_pwr = GetSkuPAModePwr(pAd, i);
 
+#ifdef DBG
 		printk("base_pwr = %d", base_pwr);
+#endif /* DBG */
 		rate_pwr = base_pwr << 12;
+#ifdef DBG
 		printk("\t base_pwr = %d\n", rate_pwr);
 		printk("mcs_digital_pwr = %d\n", mcs_digital_pwr);
 		printk("pa_mode_pwr = %d\n", pa_mode_pwr);
+#endif /* DBG */
 		rate_pwr = rate_pwr + mcs_digital_pwr + pa_mode_pwr;
+#ifdef DBG
 		printk("rate_pwr = %d\n", rate_pwr);
+#endif /* DBG */
 		diff_pwr = sku_rate_pwr - rate_pwr;
+#ifdef DBG
 		printk("diff_pwr = %d", diff_pwr);
+#endif /* DBG */
 		diff_pwr = diff_pwr >> 12;
+#ifdef DBG
 		printk("\tdiff_pwr = %d\n", diff_pwr);
+#endif /* DBG */
 
 		rate_table[i] = diff_pwr -1;
 	}

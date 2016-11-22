@@ -142,7 +142,9 @@ static BOOLEAN USBDevConfigInit(
 
 	if (!(pConfig->BulkInEpAddr && pConfig->BulkOutEpAddr[0])) 
 	{
+#ifdef DBG
 		printk("Could not find both bulk-in and bulk-out endpoints\n");
+#endif /* DBG */
 		return FALSE;
 	}
 
@@ -273,7 +275,9 @@ static BOOLEAN USBDevConfigInit(
 
 	if (!(pConfig->BulkInEpAddr && pConfig->BulkOutEpAddr[0])) 
 	{
+#ifdef DBG
 		printk("%s: Could not find both bulk-in and bulk-out endpoints\n", __FUNCTION__);
+#endif /* DBG */
 		return FALSE;
 	}
 
@@ -335,13 +339,17 @@ static void rtusb_disconnect(struct usb_interface *intf)
 
 #ifdef CONFIG_PM
 #ifdef USB_SUPPORT_SELECTIVE_SUSPEND
+#ifdef DBG
 	printk("rtusb_disconnect usb_autopm_put_interface \n");
+#endif /* DBG */
 	usb_autopm_put_interface(intf);
+#ifdef DBG
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,32)	 
 	printk(" ^^rt2870_disconnect ====> pm_usage_cnt %d \n", atomic_read(&intf->pm_usage_cnt));
 #else
 	printk(" rt2870_disconnect ====> pm_usage_cnt %d \n", intf->pm_usage_cnt);
 #endif
+#endif /* DBG */
 #endif /* USB_SUPPORT_SELECTIVE_SUSPEND */
 #endif /* CONFIG_PM */
 
@@ -559,7 +567,9 @@ static void rt2870_disconnect(struct usb_device *dev, VOID *pAd)
 		usb_put_dev(dev);
 #endif /* LINUX_VERSION_CODE */
 
+#ifdef DBG
 		printk("rtusb_disconnect: pAd == NULL!\n");
+#endif /* DBG */
 		return;
 	}
 /*	RTMP_SET_FLAG(pAd, fRTMP_ADAPTER_NIC_NOT_EXIST); */
@@ -641,10 +651,14 @@ static int rt2870_probe(
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,32)
 	atomic_set(&intf->pm_usage_cnt, 1);
+#ifdef DBG
 	 printk(" rt2870_probe ====> pm_usage_cnt %d \n", atomic_read(&intf->pm_usage_cnt));
+#endif /* DBG */
 #else
          intf->pm_usage_cnt = 1;
+#ifdef DBG
 	 printk(" rt2870_probe ====> pm_usage_cnt %d \n", intf->pm_usage_cnt);
+#endif /* DBG */
 #endif
 #endif /* USB_SUPPORT_SELECTIVE_SUSPEND */
 #endif /* CONFIG_PM */
@@ -655,7 +669,9 @@ static int rt2870_probe(
 	os_alloc_mem(NULL, (UCHAR **)&handle, sizeof(struct os_cookie));
 	if (handle == NULL)
 	{
+#ifdef DBG
 		printk("rt2870_probe(): Allocate memory for os handle failed!\n");
+#endif /* DBG */
 		return -ENOMEM;
 	}
 	memset(handle, 0, sizeof(struct os_cookie));

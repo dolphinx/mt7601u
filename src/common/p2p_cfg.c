@@ -9992,8 +9992,10 @@ INT Set_McastPhyMode(
 			break;
 #endif /* DOT11_N_SUPPORT */
 		default:
+#ifdef DBG
 			printk("Unknown Muticast PhyMode %d.\n", PhyMode);
 			printk("0:Disable 1:CCK, 2:OFDM, 3:HTMIX.\n");
+#endif /* DBG */
 			break;
 	}
 

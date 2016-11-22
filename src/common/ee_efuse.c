@@ -930,7 +930,9 @@ INT set_eFuseGetFreeBlockCount_Proc(
 	if (pAd->bUseEfuse == FALSE && pAd->bFroceEEPROMBuffer == FALSE)
 		return FALSE;
 	eFuseGetFreeBlockCount(pAd,&efusefreenum);
+#ifdef DBG
 	printk("efuseFreeNumber is %d\n",efusefreenum);
+#endif /* DBG */
 	return TRUE;
 }
 
@@ -952,9 +954,11 @@ INT set_eFusedump_Proc(
 		InBuf[2] = 0x0;	
 		
 		eFuseReadPhysical(pAd, &InBuf[0], 4, &InBuf[2], 2);
+#ifdef DBG
 		if(i%4==0)
 		printk("\nBlock %x:",i/8);
 		printk("%04x ",InBuf[2]);
+#endif /* DBG */
 	}
 	return TRUE;
 }
@@ -1266,7 +1270,9 @@ static NTSTATUS eFuseWriteRegistersFromBin(
 		}
 		if(!bNotWrite)
 		{
+#ifdef DBG
 		printk("The data is not the same\n");
+#endif /* DBG */
 		
 			for(i =0; i<8; i++)
 			{
