@@ -197,7 +197,7 @@ VOID APMakeBssBeacon(RTMP_ADAPTER *pAd, INT apidx)
 			BuildBeaconChList(pAd, TmpFrame, &TmpLen2);
 #else
 			{
-				UCHAR MaxTxPower = GetCuntryMaxTxPwr(pAd, pAd->CommonCfg.Channel);
+				UCHAR MaxTxPower = GetCountryMaxTxPwr(pAd, pAd->CommonCfg.Channel);
 				MakeOutgoingFrame(TmpFrame+TmpLen2,     &TmpLen,
 									1,                 	&pAd->ChannelList[0].Channel,
 									1,                 	&pAd->ChannelListNum,

@@ -28,11 +28,15 @@ MODULE_AUTHOR("Paul Lin <paul_lin@ralinktech.com>");
 MODULE_DESCRIPTION("RT2870 Wireless Lan Linux Driver");
 
 
-#ifdef CONFIG_STA_SUPPORT
 #ifdef MODULE_VERSION
+#ifdef CONFIG_STA_SUPPORT
 MODULE_VERSION(STA_DRIVER_VERSION);
+#else /* CONFIG_STA_SUPPORT */
+#ifdef CONFIG_AP_SUPPORT
+MODULE_VERSION(AP_DRIVER_VERSION);
 #endif
 #endif /* CONFIG_STA_SUPPORT */
+#endif /* MODULE_VERSION */
 
 
 extern USB_DEVICE_ID rtusb_dev_id[];

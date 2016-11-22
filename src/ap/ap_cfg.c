@@ -2330,9 +2330,7 @@ INT RTMPAPQueryInformation(
     POS_COOKIE pObj = (POS_COOKIE) pAd->OS_Cookie;
     STRING	driverVersion[8];
 
-#if defined(DBG) || defined(WSC_AP_SUPPORT)
 	UCHAR	apidx = pObj->ioctl_if;
-#endif
 
 #ifdef SNMP_SUPPORT	
 	/*for snmp, kathy */

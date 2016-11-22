@@ -458,7 +458,7 @@ VOID GetSingleSkuDeltaPower(
 		TxPwrInEEPROM = (pAd->CommonCfg.DefineMaxTxPwr & 0x00FF); /* 2.4G band */
 	}
 
-	CountryTxPwr = GetCuntryMaxTxPwr(pAd, pAd->CommonCfg.Channel); 
+	CountryTxPwr = GetCountryMaxTxPwr(pAd, pAd->CommonCfg.Channel); 
 
 	/* Use OFDM 6M as the criterion */
 	criterion = (UCHAR)((CfgOfTxPwrCtrlOverMAC.TxPwrCtrlOverMAC[0].RegisterValue & 0x000F0000) >> 16);

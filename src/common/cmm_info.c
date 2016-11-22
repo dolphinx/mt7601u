@@ -6532,7 +6532,7 @@ INT set_force_amsdu(RTMP_ADAPTER *pAd, PSTRING arg)
 INT set_rf(RTMP_ADAPTER *pAd, PSTRING arg)
 {
 	INT bank_id = 0, rf_id = 0, rv = 0;
-	UCHAR rf_val = 0;
+	INT rf_val = 0;
 	
 	if (arg)
 	{
