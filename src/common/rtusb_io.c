@@ -2113,7 +2113,7 @@ VOID RTUSBWatchDog(IN RTMP_ADAPTER *pAd)
 				}
 				else
 				{
-					DBGPRINT(RT_DEBUG_ERROR, ("Unkonw bulkOut URB maybe hanged!!!!!!!!!!!!\n"));
+					DBGPRINT(RT_DEBUG_ERROR, ("Unknown bulkOut URB maybe hanged!!!!!!!!!!!!\n"));
 				}
 			}
 			else

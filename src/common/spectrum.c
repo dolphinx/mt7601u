@@ -127,7 +127,7 @@ UINT8 GetRegulatoryMaxTxPwr(
 	}
 	else
 	{
-		DBGPRINT(RT_DEBUG_ERROR, ("%s: Unknow Country (%s)\n",
+		DBGPRINT(RT_DEBUG_ERROR, ("%s: Unknown Country (%s)\n",
 					__FUNCTION__, pCountry));
 		return 0xff;
 	}
@@ -141,7 +141,7 @@ UINT8 GetRegulatoryMaxTxPwr(
 		RegulatoryClass = pAd->CommonCfg.RegulatoryClass[RegulatoryClassLoop];
 		if (RegulatoryClass >= MaxRegulatoryClassNum)
 		{
-			DBGPRINT(RT_DEBUG_ERROR, ("%s: %c%c Unknow Requlatory class (%d)\n",
+			DBGPRINT(RT_DEBUG_ERROR, ("%s: %c%c Unknown Requlatory class (%d)\n",
 						__FUNCTION__, pCountry[0], pCountry[1], RegulatoryClass));
 			return 0xff;
 		}
@@ -840,7 +840,7 @@ VOID InsertChannelRepIE(
 	{
 		if (RegulatoryClass >= USA_REGULATORY_INFO_SIZE)
 		{
-			DBGPRINT(RT_DEBUG_ERROR, ("%s: USA Unknow Requlatory class (%d)\n",
+			DBGPRINT(RT_DEBUG_ERROR, ("%s: USA Unknown Requlatory class (%d)\n",
 						__FUNCTION__, RegulatoryClass));
 			return;
 		}
@@ -850,7 +850,7 @@ VOID InsertChannelRepIE(
 	{
 		if (RegulatoryClass >= JP_REGULATORY_INFO_SIZE)
 		{
-			DBGPRINT(RT_DEBUG_ERROR, ("%s: JP Unknow Requlatory class (%d)\n",
+			DBGPRINT(RT_DEBUG_ERROR, ("%s: JP Unknown Requlatory class (%d)\n",
 						__FUNCTION__, RegulatoryClass));
 			return;
 		}
@@ -859,7 +859,7 @@ VOID InsertChannelRepIE(
 	}
 	else
 	{
-		DBGPRINT(RT_DEBUG_ERROR, ("%s: Unknow Country (%s)\n",
+		DBGPRINT(RT_DEBUG_ERROR, ("%s: Unknown Country (%s)\n",
 					__FUNCTION__, pCountry));
 		return;
 	}
@@ -2115,7 +2115,7 @@ INT Set_MeasureReq_Proc(
 				MeasureReqType = simple_strtol(thisChar, 0, 16);
 				if (MeasureReqType > 3)
 				{
-					DBGPRINT(RT_DEBUG_ERROR, ("%s: unknow MeasureReqType(%d)\n", __FUNCTION__, MeasureReqType));
+					DBGPRINT(RT_DEBUG_ERROR, ("%s: unknown MeasureReqType(%d)\n", __FUNCTION__, MeasureReqType));
 					goto END_OF_MEASURE_REQ;
 				}
 				break;
@@ -2130,7 +2130,7 @@ INT Set_MeasureReq_Proc(
 	DBGPRINT(RT_DEBUG_TRACE, ("%s::Aid = %d, MeasureReqType=%d MeasureCh=%d\n", __FUNCTION__, Aid, MeasureReqType, MeasureCh));
 	if (!VALID_WCID(Aid))
 	{
-		DBGPRINT(RT_DEBUG_ERROR, ("%s: unknow sta of Aid(%d)\n", __FUNCTION__, Aid));
+		DBGPRINT(RT_DEBUG_ERROR, ("%s: unknown sta of Aid(%d)\n", __FUNCTION__, Aid));
 		goto END_OF_MEASURE_REQ;
 	}
 
@@ -2189,7 +2189,7 @@ INT Set_TpcReq_Proc(
 	DBGPRINT(RT_DEBUG_TRACE, ("%s::Aid = %d\n", __FUNCTION__, Aid));
 	if (!VALID_WCID(Aid))
 	{
-		DBGPRINT(RT_DEBUG_ERROR, ("%s: unknow sta of Aid(%d)\n", __FUNCTION__, Aid));
+		DBGPRINT(RT_DEBUG_ERROR, ("%s: unknown sta of Aid(%d)\n", __FUNCTION__, Aid));
 		return TRUE;
 	}
 

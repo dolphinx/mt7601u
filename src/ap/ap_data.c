@@ -371,7 +371,7 @@ NDIS_STATUS APSendPacket(RTMP_ADAPTER *pAd, PNDIS_PACKET pPacket)
 	}
 	else
 	{
-		DBGPRINT(RT_DEBUG_ERROR, ("I/F(ra%d) APSendPacket --> Drop unknow packet !!!\n", apidx));
+		DBGPRINT(RT_DEBUG_ERROR, ("I/F(ra%d) APSendPacket --> Drop unknown packet !!!\n", apidx));
 		RELEASE_NDIS_PACKET(pAd, pPacket, NDIS_STATUS_FAILURE);
 		return NDIS_STATUS_FAILURE;
 	}

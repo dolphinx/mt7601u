@@ -540,7 +540,7 @@ BOOLEAN	WscWriteProfileToUfdFile(
 			pXmlTemplate = offset + strlen(XML_AUTH_MARK);
 			if (bFound == FALSE)
 			{
-				DBGPRINT(RT_DEBUG_TRACE, ("--> %s: Unknow Auth Type(=%x)\n", __FUNCTION__, pCredential->AuthType));
+				DBGPRINT(RT_DEBUG_TRACE, ("--> %s: Unknown Auth Type(=%x)\n", __FUNCTION__, pCredential->AuthType));
 				bRtn = FALSE;
 				goto out;
 			}
@@ -562,7 +562,7 @@ BOOLEAN	WscWriteProfileToUfdFile(
 			pXmlTemplate = offset + strlen(XML_ENCR_MARK);
 			if (bFound == FALSE)
 			{
-				DBGPRINT(RT_DEBUG_TRACE, ("--> %s: Unknow Encr Type(=%x)\n", __FUNCTION__, pCredential->EncrType));
+				DBGPRINT(RT_DEBUG_TRACE, ("--> %s: Unknown Encr Type(=%x)\n", __FUNCTION__, pCredential->EncrType));
 				bRtn = FALSE;
 				goto out;
 			}

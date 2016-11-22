@@ -4224,7 +4224,7 @@ NDIS_STATUS	RTMPSetProfileParameters(
 #endif /* DOT11_N_SUPPORT */									
 
 							default:
-								DBGPRINT(RT_DEBUG_OFF, ("unknow Muticast PhyMode %d.\n", PhyMode));
+								DBGPRINT(RT_DEBUG_OFF, ("Unknown Muticast PhyMode %d.\n", PhyMode));
 								DBGPRINT(RT_DEBUG_OFF, ("0:Disable 1:CCK, 2:OFDM, 3:HTMIX.\n"));
 								break;
 						}

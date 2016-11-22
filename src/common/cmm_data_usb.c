@@ -1173,7 +1173,7 @@ VOID RtmpUSBNullFrameKickOut(
 		pNullContext = &pAd->NullContext[1];
 	}
 	else
-		DBGPRINT(RT_DEBUG_ERROR, ("%s: Unknow pipe!!\n", __FUNCTION__));
+		DBGPRINT(RT_DEBUG_ERROR, ("%s: Unknown pipe!!\n", __FUNCTION__));
 
 #endif /* CONFIG_MULTI_CHANNEL */
 	if (pNullContext->InUse == FALSE)

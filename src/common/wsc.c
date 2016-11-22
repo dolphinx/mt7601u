@@ -765,7 +765,7 @@ VOID WscEAPAction(
 			{
 				if (IS_ENTRY_CLIENT(pEntry) && pEntry->apidx >= pAdapter->ApCfg.BssidNum)
 				{
-					DBGPRINT(RT_DEBUG_TRACE, ("WscEAPAction: Unknow apidex(=%d).\n", pEntry->apidx));
+					DBGPRINT(RT_DEBUG_TRACE, ("WscEAPAction: Unknown apidex(=%d).\n", pEntry->apidx));
 					DBGPRINT(RT_DEBUG_TRACE, ("<----- WscEAPAction\n"));
 					return;
 				}
@@ -7769,7 +7769,7 @@ INT	WscSetAuthMode(
 		else
 		{
 			pAd->ApCfg.MBSSID[apidx].AuthMode = Ndis802_11AuthModeOpen;
-			DBGPRINT(RT_DEBUG_TRACE, ("%s: Unknow AuthMode (%s), set AuthMode to OPEN\n", __FUNCTION__, arg));
+			DBGPRINT(RT_DEBUG_TRACE, ("%s: Unknown AuthMode (%s), set AuthMode to OPEN\n", __FUNCTION__, arg));
 		}
 
 		for (i=0; i<MAX_LEN_OF_MAC_TABLE; i++)
@@ -7852,7 +7852,7 @@ INT	WscSetEncrypType(
 	else
     	{
 		pAd->ApCfg.MBSSID[apidx].WepStatus = Ndis802_11WEPDisabled;
-		DBGPRINT(RT_DEBUG_TRACE, ("%s: Unknow EncrypType (%s), set EncrypType to NONE\n", __FUNCTION__, arg));
+		DBGPRINT(RT_DEBUG_TRACE, ("%s: Unknown EncrypType (%s), set EncrypType to NONE\n", __FUNCTION__, arg));
 	}
 
 	if (pAd->ApCfg.MBSSID[apidx].WepStatus >= Ndis802_11Encryption2Enabled)
@@ -9421,7 +9421,7 @@ VOID   WpsSmProcess(
         }
     }
     else
-        DBGPRINT(RT_DEBUG_WARN, ("Unknow Message Type (=%lu)\n", Elem->MsgType));
+        DBGPRINT(RT_DEBUG_WARN, ("Unknown Message Type (=%lu)\n", Elem->MsgType));
 }
 
 #ifdef CONFIG_AP_SUPPORT

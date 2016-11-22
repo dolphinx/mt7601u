@@ -1894,7 +1894,7 @@ VOID LinkUp(
 				pAd->SharedKey[BSS0][0].CipherAlg = CIPHER_AES;
 			else {
 				DBGPRINT(RT_DEBUG_TRACE,
-					 ("Unknow Cipher (=%d), set Cipher to AES\n",
+					 ("Unknown Cipher (=%d), set Cipher to AES\n",
 					  pAd->StaCfg.PairCipher));
 				pAd->SharedKey[BSS0][0].CipherAlg = CIPHER_AES;
 			}

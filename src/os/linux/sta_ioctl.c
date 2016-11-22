@@ -1927,7 +1927,7 @@ int rt_ioctl_siwmlme(struct net_device *dev,
 			break;
 #endif /* IW_MLME_DISASSOC */
 		default:
-			DBGPRINT(RT_DEBUG_TRACE, ("====> %s - Unknow Command\n", __FUNCTION__));
+			DBGPRINT(RT_DEBUG_TRACE, ("====> %s - Unknown Command\n", __FUNCTION__));
 			break;
 	}
 

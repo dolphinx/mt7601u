@@ -69,7 +69,7 @@ VOID InitFrequencyCalibrationMode(
 		RTMP_BBP_IO_WRITE8_BY_REG_ID(pAd, BBP_R143, BBP_R57); /* Rx OFDM/CCK frequency offset report*/
 	}
 	else
-		DBGPRINT(RT_DEBUG_ERROR, ("%s:Unknow mode = %d\n", __FUNCTION__, Mode));
+		DBGPRINT(RT_DEBUG_ERROR, ("%s:Unknown mode = %d\n", __FUNCTION__, Mode));
 }
 
 
@@ -281,7 +281,7 @@ inline CHAR GetFrequencyOffsetField(
 		FreqOffset = (CHAR)(pRxWI->RxWIFOFFSET);
 	}
 	else
-		DBGPRINT(RT_DEBUG_ERROR, ("%s:Unknow Frequency Offset location(%d)\n", __FUNCTION__, RxWIFrqOffsetField));
+		DBGPRINT(RT_DEBUG_ERROR, ("%s:Unknown Frequency Offset location(%d)\n", __FUNCTION__, RxWIFrqOffsetField));
 
 	return FreqOffset;		
 }

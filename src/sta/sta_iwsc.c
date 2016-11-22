@@ -1224,7 +1224,7 @@ VOID	IWSC_PeerAction(
 		}
 		else
 		{
-			DBGPRINT(RT_DEBUG_TRACE, ("Unknow Frame Type!\n"));
+			DBGPRINT(RT_DEBUG_TRACE, ("Unknown Frame Type!\n"));
 		}
 	}
 	DBGPRINT(RT_DEBUG_TRACE, ("<----- IWSC_PeerAction\n"));

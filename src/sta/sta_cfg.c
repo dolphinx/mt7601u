@@ -7240,7 +7240,7 @@ VOID RTMPIoctlShow(
 		break;
 
         default:
-            DBGPRINT(RT_DEBUG_TRACE, ("%s - unknow subcmd = %d\n", __FUNCTION__, subcmd));
+            DBGPRINT(RT_DEBUG_TRACE, ("%s - unknown subcmd = %d\n", __FUNCTION__, subcmd));
             break;
     }
 }
@@ -9119,7 +9119,7 @@ RtmpIoctl_rt_ioctl_siwpmksa(
 			DBGPRINT(RT_DEBUG_TRACE ,("rt_ioctl_siwpmksa - IW_PMKSA_ADD\n"));
 			break;
 		default:
-			DBGPRINT(RT_DEBUG_TRACE ,("rt_ioctl_siwpmksa - Unknow Command!!\n"));
+			DBGPRINT(RT_DEBUG_TRACE ,("rt_ioctl_siwpmksa - Unknown Command!!\n"));
 			break;
 	}
 
@@ -9531,7 +9531,7 @@ RtmpIoctl_rt_private_set_wsc_u32_item(
 			break;
 			
         default:
-            DBGPRINT(RT_DEBUG_TRACE, ("%s - unknow subcmd = %d, value = %d\n", __FUNCTION__, subcmd, value));
+            DBGPRINT(RT_DEBUG_TRACE, ("%s - unknown subcmd = %d, value = %d\n", __FUNCTION__, subcmd, value));
             break;
     }
 #endif /* WSC_STA_SUPPORT */
@@ -9701,7 +9701,7 @@ RtmpIoctl_rt_private_set_wsc_string_item(
 			DBGPRINT(RT_DEBUG_TRACE, ("%s - WSC_SET_BSSID\n", __FUNCTION__));
 			break;
         default:
-            DBGPRINT(RT_DEBUG_TRACE, ("%s - unknow subcmd = %d\n", __FUNCTION__, subcmd));
+            DBGPRINT(RT_DEBUG_TRACE, ("%s - unknown subcmd = %d\n", __FUNCTION__, subcmd));
             break;
     }
 #endif /* WSC_STA_SUPPORT */

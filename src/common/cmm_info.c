@@ -2379,7 +2379,7 @@ VOID	RTMPCommSiteSurveyData(
 		else if (wireless_mode == Ndis802_11OFDM24_N)
 			sprintf(msg+strlen(msg),"%-7s", "11b/g/n");
 		else
-			sprintf(msg+strlen(msg),"%-7s", "unknow");
+			sprintf(msg+strlen(msg),"%-7s", "unknown");
 
 		/* Ext Channel*/
 		if (pBss->AddHtInfoLen > 0)
@@ -2445,7 +2445,7 @@ VOID RTMPIoctlGetSiteSurvey(
 	sprintf(msg,"%s","\n");
 
 	sprintf(msg+strlen(msg),"%-4s%-33s%-20s%-23s%-9s%-7s%-7s%-3s\n",
-	    "Ch", "SSID", "BSSID", "Security", "Siganl(%)", "W-Mode", " ExtCH"," NT");	
+	    "Ch", "SSID", "BSSID", "Security", "Signal(%)", "W-Mode", " ExtCH"," NT");	
 
 #ifdef WSC_INCLUDED
 	sprintf(msg+strlen(msg)-1,"%-4s%-5s\n", " WPS", " DPID");
@@ -4430,7 +4430,7 @@ INT	Show_WirelessMode_Proc(
 			break;
 #endif /* DOT11_N_SUPPORT */
 		default:
-			snprintf(pBuf, BufLen, "\tUnknow Value(%d)", pAd->CommonCfg.PhyMode);
+			snprintf(pBuf, BufLen, "\tUnknown Value(%d)", pAd->CommonCfg.PhyMode);
 			break;
 	}
 
@@ -4506,7 +4506,7 @@ INT	Show_BGProtection_Proc(
 			snprintf(pBuf, BufLen, "\tAuto");
 			break;
 		default:
-			snprintf(pBuf, BufLen, "\tUnknow Value(%lu)", pAd->CommonCfg.UseBGProtection);
+			snprintf(pBuf, BufLen, "\tUnknown Value(%lu)", pAd->CommonCfg.UseBGProtection);
 			break;
 	}
 	return 0;
@@ -4580,7 +4580,7 @@ INT	Show_HtGi_Proc(
 			snprintf(pBuf, BufLen, "\tGI_800");
 			break;
 		default:
-			snprintf(pBuf, BufLen, "\tUnknow Value(%u)", pAd->CommonCfg.RegTransmitSetting.field.ShortGI);
+			snprintf(pBuf, BufLen, "\tUnknown Value(%u)", pAd->CommonCfg.RegTransmitSetting.field.ShortGI);
 			break;
 	}
 	return 0;
@@ -4600,7 +4600,7 @@ INT	Show_HtOpMode_Proc(
 			snprintf(pBuf, BufLen, "\tMM");
 			break;
 		default:
-			snprintf(pBuf, BufLen, "\tUnknow Value(%u)", pAd->CommonCfg.RegTransmitSetting.field.HTMODE);
+			snprintf(pBuf, BufLen, "\tUnknown Value(%u)", pAd->CommonCfg.RegTransmitSetting.field.HTMODE);
 			break;
 	}
 	return 0;
@@ -4620,7 +4620,7 @@ INT	Show_HtExtcha_Proc(
 			snprintf(pBuf, BufLen, "\tAbove");
 			break;
 		default:
-			snprintf(pBuf, BufLen, "\tUnknow Value(%u)", pAd->CommonCfg.RegTransmitSetting.field.EXTCHA);
+			snprintf(pBuf, BufLen, "\tUnknown Value(%u)", pAd->CommonCfg.RegTransmitSetting.field.EXTCHA);
 			break;
 	}
 	return 0;
@@ -4763,7 +4763,7 @@ INT	Show_NetworkType_Proc(
 			snprintf(pBuf, BufLen, "\tMonitor");
 			break;
 		default:
-			sprintf(pBuf, "\tUnknow Value(%d)", pAd->StaCfg.BssType);
+			sprintf(pBuf, "\tUnknown Value(%d)", pAd->StaCfg.BssType);
 			break;
 	}
 	return 0;
@@ -4787,7 +4787,7 @@ INT	Show_WpsPbcBand_Proc(
 			snprintf(pBuf, BufLen, "\tAuto");
 			break;
 		default:
-			snprintf(pBuf, BufLen, "\tUnknow Value(%d)", pAd->StaCfg.WscControl.WpsApBand);
+			snprintf(pBuf, BufLen, "\tUnknown Value(%d)", pAd->StaCfg.WscControl.WpsApBand);
 			break;
 	}
 	return 0;
@@ -4852,7 +4852,7 @@ INT	Show_AuthMode_Proc(
 		snprintf(pBuf, BufLen, "\t%s", "WAI_PSK");				 
 #endif /* WAPI_SUPPORT */
 	else
-		snprintf(pBuf, BufLen, "\tUnknow Value(%d)", AuthMode);
+		snprintf(pBuf, BufLen, "\tUnknown Value(%d)", AuthMode);
 	
 	return 0;
 }
@@ -4880,10 +4880,10 @@ INT	Show_EncrypType_Proc(
 		snprintf(pBuf, BufLen, "\t%s", RTMPGetRalinkEncryModeStr(WepStatus));
 #ifdef WAPI_SUPPORT
 	else if (WepStatus == Ndis802_11EncryptionSMS4Enabled)
-		snprintf(pBuf, BufLen, "\t%s", "WPI_SMS4");
+		snprintf(pBuf, BufLen, "\tWPI_SMS4");
 #endif /* WAPI_SUPPORT */
 	else
-		snprintf(pBuf, BufLen, "\tUnknow Value(%d)", WepStatus);
+		snprintf(pBuf, BufLen, "\tUnknown Value(%d)", WepStatus);
 	
 	return 0;
 }

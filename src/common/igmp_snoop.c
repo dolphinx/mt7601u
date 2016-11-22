@@ -576,7 +576,7 @@ VOID IGMPSnooping(
 			break;
 
 		default:
-			DBGPRINT(RT_DEBUG_TRACE, ("unknow IGMP Type=%d\n", IgmpVerType));
+			DBGPRINT(RT_DEBUG_TRACE, ("Unknown IGMP Type=%d\n", IgmpVerType));
 			break;
 		}
 	}
@@ -1499,7 +1499,7 @@ VOID MLDSnooping(
 				break;
 
 			default:
-				DBGPRINT(RT_DEBUG_TRACE, ("unknow MLD Type=%d\n", MldType));
+				DBGPRINT(RT_DEBUG_TRACE, ("Unknown MLD Type=%d\n", MldType));
 				break;
 		}
 	}
