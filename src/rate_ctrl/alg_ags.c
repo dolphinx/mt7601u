@@ -1156,7 +1156,7 @@ VOID ApMlmeDynamicTxRateSwitchingAGS(
 #endif /*  FIFO_EXT_SUPPORT */
 	}
 
-	AGSStatisticsInfo.RSSI = RTMPAvgRssi(pAd, &pEntry->RssiSample);;
+	AGSStatisticsInfo.RSSI = RTMPAvgRssi(pAd, &pEntry->RssiSample);
 	AGSStatisticsInfo.TxErrorRatio = TxErrorRatio;
 	AGSStatisticsInfo.AccuTxTotalCnt = TxTotalCnt;
 	AGSStatisticsInfo.TxTotalCnt = TxTotalCnt;

@@ -193,7 +193,7 @@ VOID	P2pCfgInit(
 	pP2PCtrl->DevDiscPeriod = P2P_SCAN_PERIOD;
 	pP2PCtrl->bPeriodicListen = TRUE;
 	/* Reset bConfirmByUI to its default value */
-	pP2PCtrl->bConfirmByUI = CONFIRM_BY_UI_DEFAULT;;
+	pP2PCtrl->bConfirmByUI = CONFIRM_BY_UI_DEFAULT;
 	pP2PCtrl->p2pMaxEntry = 0;
 	pP2PCtrl->bProvAutoRsp = TRUE;
 	pP2PCtrl->P2pProvIndex = 0xFF;

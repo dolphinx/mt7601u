@@ -1798,7 +1798,7 @@ INT eFuse_init(RTMP_ADAPTER *pAd)
 				eFuseReadRegisters(pAd, EEPROM_TX0_TSSI_OFFSET_GROUP1, 2, &EfuseValue);
 				*(UINT16 *)(&pAd->EEPROMImage[EEPROM_TX0_TSSI_OFFSET_GROUP1]) = EfuseValue;
 				eFuseReadRegisters(pAd, EEPROM_TX0_TSSI_OFFSET, 2, &EfuseValue);
-				pAd->EEPROMImage[EEPROM_TX0_TSSI_OFFSET] = (UCHAR)(EfuseValue & 0xFF);;
+				pAd->EEPROMImage[EEPROM_TX0_TSSI_OFFSET] = (UCHAR)(EfuseValue & 0xFF);
 
 				eFuseReadRegisters(pAd, EEPROM_G_TARGET_POWER, 2, &EfuseValue);
 				pAd->EEPROMImage[EEPROM_G_TARGET_POWER + 1] = (UCHAR)(EfuseValue >> 8);

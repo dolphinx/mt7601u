@@ -243,7 +243,7 @@ VOID ComposeNullFrame(RTMP_ADAPTER *pAd)
 	TXWI_STRUC *pTxWI;
 	UCHAR *buf;
 	UINT8 TXWISize = pAd->chipCap.TXWISize;
-	USHORT data_len = sizeof(pAd->NullFrame);;
+	USHORT data_len = sizeof(pAd->NullFrame);
 
 	PTX_CONTEXT pNullContext = &pAd->NullContext[0];
 

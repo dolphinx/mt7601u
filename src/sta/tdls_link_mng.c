@@ -2627,7 +2627,7 @@ TDLS_PeerSetupReqAction(
 			if (pTDLS->Token == Token)
 			{
 				DBGPRINT(RT_DEBUG_WARN, ("TDLS - PeerTdlsSetupReqAction() receive the same token TDLS request !!!\n"));
-				goto CleanUp;;
+				goto CleanUp;
 			}
 		}
 
