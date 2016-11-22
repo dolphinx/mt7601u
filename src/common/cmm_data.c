@@ -98,8 +98,10 @@ VOID dumpRxFCEInfo(RTMP_ADAPTER *pAd, RXFCE_INFO *pRxFceInfo)
 #endif /* RLT_MAC */
 
 
+#ifdef DBG
 static UCHAR *txwi_txop_str[]={"HT_TXOP", "PIFS", "SIFS", "BACKOFF", "Invalid"};
 #define TXWI_TXOP_STR(_x)	((_x) <= 3 ? txwi_txop_str[(_x)]: txwi_txop_str[4])
+#endif /* DBG */
 
 VOID dumpTxWI(RTMP_ADAPTER *pAd, TXWI_STRUC *pTxWI)
 {
@@ -152,6 +154,7 @@ VOID dump_rxwi(RTMP_ADAPTER *pAd, RXWI_STRUC *pRxWI)
 }
 
 
+#ifdef DBG
 static UCHAR *txinfo_type_str[]={"PKT", "", "CMD", "RSV", "Invalid"};
 static UCHAR *txinfo_d_port_str[]={"WLAN", "CPU_RX", "CPU_TX", "HOST", "VIRT_RX", "VIRT_TX", "DROP", "Invalid"};
 static UCHAR *txinfo_que_str[]={"MGMT", "HCCA", "EDCA_1", "EDCA_2", "Invalid"};
@@ -159,6 +162,7 @@ static UCHAR *txinfo_que_str[]={"MGMT", "HCCA", "EDCA_1", "EDCA_2", "Invalid"};
 #define TXINFO_TYPE_STR(_x)  	((_x)<=3 ?  txinfo_type_str[_x] : txinfo_type_str[4])
 #define TXINFO_DPORT_STR(_x)	((_x) <= 6 ? txinfo_d_port_str[_x]: txinfo_d_port_str[7])
 #define TXINFO_QUE_STR(_x)		((_x) <= 3 ? txinfo_que_str[_x]: txinfo_que_str[4])
+#endif /* DBG */
 
 VOID dump_txinfo(RTMP_ADAPTER *pAd, TXINFO_STRUC *pTxInfo)
 {
@@ -168,7 +172,9 @@ VOID dump_txinfo(RTMP_ADAPTER *pAd, TXINFO_STRUC *pTxInfo)
 
 #ifdef RLT_MAC
 {
+#ifdef DBG
 	struct _TXINFO_NMAC_PKT *pkt_txinfo = (struct _TXINFO_NMAC_PKT *)pTxInfo;
+#endif /* DBG */
 
 	DBGPRINT(RT_DEBUG_OFF, ("\tInfo_Type=%d(%s)\n", pkt_txinfo->info_type, TXINFO_TYPE_STR(pkt_txinfo->info_type)));
 	DBGPRINT(RT_DEBUG_OFF, ("\td_port=%d(%s)\n", pkt_txinfo->d_port, TXINFO_DPORT_STR(pkt_txinfo->d_port)));
@@ -2683,8 +2689,6 @@ VOID Indicate_Legacy_Packet_Hdr_Trns(
 	PNDIS_PACKET pRxPacket = pRxBlk->pRxPacket;
 	UCHAR Header802_3[LENGTH_802_3];
 	USHORT VLAN_VID = 0, VLAN_Priority = 0;
-
-	struct sk_buff *pOSPkt;
 
 //+++Add by shiang for debug
 if (0) {

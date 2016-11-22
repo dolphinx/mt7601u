@@ -5265,7 +5265,6 @@ NDIS_STATUS	RTMPSetSingleSKUParameters(
 	PSTRING ptr;
 	int index, i;
 	CH_POWER *StartCh = NULL;
-	UCHAR MaxPwr;
 	UCHAR channel, *temp;
 	RTMP_OS_FS_INFO osFSInfo;
 

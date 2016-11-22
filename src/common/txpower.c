@@ -254,7 +254,7 @@ VOID AsicAdjustTxPower(
 {
 	INT			i, j;
 	CHAR 		Value;
-	CHAR		Rssi = -127;
+	//CHAR		Rssi = -127;
 	CHAR		DeltaPwr = 0;
 	CHAR		TxAgcCompensate = 0;
 	CHAR		DeltaPowerByBbpR1 = 0; 
@@ -275,7 +275,7 @@ VOID AsicAdjustTxPower(
 		RTMP_TEST_FLAG(pAd, fRTMP_ADAPTER_BSS_SCAN_IN_PROGRESS))
 		return;
 
-	IF_DEV_CONFIG_OPMODE_ON_STA(pAd)
+	/*IF_DEV_CONFIG_OPMODE_ON_STA(pAd)
 	{
 		if(INFRA_ON(pAd))
 		{
@@ -284,7 +284,7 @@ VOID AsicAdjustTxPower(
 						   pAd->StaCfg.RssiSample.AvgRssi1, 
 						   pAd->StaCfg.RssiSample.AvgRssi2);
 		}
-	}
+	}*/
 #endif /* CONFIG_STA_SUPPORT */
 
 	/* Get Tx rate offset table which from EEPROM 0xDEh ~ 0xEFh */

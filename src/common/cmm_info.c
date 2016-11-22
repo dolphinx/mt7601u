@@ -5046,6 +5046,7 @@ INT	Show_STA_RAInfo_Proc(
 }
 
 
+#ifdef DBG
 INT show_devinfo_proc(RTMP_ADAPTER *pAd, PSTRING arg)
 {
 	UCHAR *pstr;
@@ -5101,6 +5102,7 @@ INT show_devinfo_proc(RTMP_ADAPTER *pAd, PSTRING arg)
 
 	return TRUE;
 }
+#endif /* DBG */
 
 
 #ifdef WSC_STA_SUPPORT

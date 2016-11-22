@@ -54,8 +54,10 @@
 #define RT_CONFIG_IF_OPMODE_ON_STA(__OpMode)
 #endif
 
+#ifdef DBG
 ULONG RTDebugLevel = RT_DEBUG_ERROR;
 ULONG RTDebugFunc = 0;
+#endif /* DBG */
 
 #ifdef OS_ABL_FUNC_SUPPORT
 ULONG RTPktOffsetData = 0, RTPktOffsetLen = 0, RTPktOffsetCB = 0;
@@ -784,9 +786,9 @@ VOID RtmpOsSetPacket(
 #endif /* HDR_TRANS_SUPPORT */
 
 
+#ifdef DBG
 void hex_dump(char *str, UCHAR *pSrcBufVA, UINT SrcBufLen)
 {
-#ifdef DBG
 	unsigned char *pt;
 	int x;
 
@@ -803,8 +805,8 @@ void hex_dump(char *str, UCHAR *pSrcBufVA, UINT SrcBufLen)
 			printk("\n");
 	}
 	printk("\n");
-#endif /* DBG */
 }
+#endif /* DBG */
 
 #ifdef SYSTEM_LOG_SUPPORT
 /*

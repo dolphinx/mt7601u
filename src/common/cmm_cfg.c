@@ -222,8 +222,9 @@ static UCHAR CFG_WMODE_MAP[]={
 };
 
 
+#ifdef DBG
 static PSTRING BAND_STR[] = {"Invalid", "2.4G", "5G", "2.4G/5G"};
-static PSTRING WMODE_STR[]= {"", "A", "B", "G", "gN", "aN", "AC"};
+static PSTRING WMODE_STR[]= {"", "a", "b", "g", "gn", "an", "ac"};
 
 UCHAR *wmode_2_str(UCHAR wmode)
 {
@@ -256,6 +257,7 @@ UCHAR *wmode_2_str(UCHAR wmode)
 	else
 		return NULL;
 }
+#endif /* DBG */
 
 
 UCHAR cfgmode_2_wmode(UCHAR cfg_mode)
@@ -311,12 +313,15 @@ static BOOLEAN wmode_valid_and_correct(RTMP_ADAPTER *pAd, UCHAR* wmode)
 BOOLEAN wmode_band_equal(UCHAR smode, UCHAR tmode)
 {
 	BOOLEAN eq = FALSE;
+#ifdef DBG
 	UCHAR *str1, *str2;
-	
+#endif /* DBG */
+
 	if ((WMODE_CAP_5G(smode) == WMODE_CAP_5G(tmode)) &&
 		(WMODE_CAP_2G(smode) == WMODE_CAP_2G(tmode)))
 		eq = TRUE; 
 
+#ifdef DBG
 	str1 = wmode_2_str(smode);
 	str2 = wmode_2_str(tmode);
 	if (str1 && str2)
@@ -330,7 +335,8 @@ BOOLEAN wmode_band_equal(UCHAR smode, UCHAR tmode)
 		os_free_mem(NULL, str1);
 	if (str2)
 		os_free_mem(NULL, str2);
-		
+#endif /* DBG */
+
 	return eq;
 }
 
@@ -346,7 +352,10 @@ BOOLEAN wmode_band_equal(UCHAR smode, UCHAR tmode)
 INT RT_CfgSetWirelessMode(RTMP_ADAPTER *pAd, PSTRING arg)
 {
 	LONG cfg_mode;
-	UCHAR wmode, *mode_str;
+	UCHAR wmode;
+#ifdef DBG
+	UCHAR *mode_str;
+#endif /* DBG */
 
 
 	cfg_mode = simple_strtol(arg, 0, 10);
@@ -369,6 +378,7 @@ INT RT_CfgSetWirelessMode(RTMP_ADAPTER *pAd, PSTRING arg)
 	pAd->CommonCfg.PhyMode = wmode;
 	pAd->CommonCfg.cfg_wmode = wmode;
 
+#ifdef DBG
 	mode_str = wmode_2_str(wmode);
 	if (mode_str)
 	{
@@ -376,6 +386,7 @@ INT RT_CfgSetWirelessMode(RTMP_ADAPTER *pAd, PSTRING arg)
 				__FUNCTION__, mode_str, wmode));
 		os_free_mem(NULL, mode_str);
 	}
+#endif /* DBG */
 
 	return TRUE;
 }
@@ -386,12 +397,16 @@ INT RT_CfgSetWirelessMode(RTMP_ADAPTER *pAd, PSTRING arg)
 #ifdef MBSS_SUPPORT
 static UCHAR RT_CfgMbssWirelessModeMaxGet(RTMP_ADAPTER *pAd)
 {
-	UCHAR wmode = 0, *mode_str;
+	UCHAR wmode = 0;
+#ifdef DBG
+	UCHAR *mode_str;
+#endif /* DBG */
 	INT idx;
 	MULTISSID_STRUCT *wdev;
 
 	for(idx = 0; idx < pAd->ApCfg.BssidNum; idx++) {
 		wdev = &pAd->ApCfg.MBSSID[idx];
+#ifdef DBG
 		mode_str = wmode_2_str(wdev->PhyMode);
 		if (mode_str)
 		{
@@ -399,9 +414,11 @@ static UCHAR RT_CfgMbssWirelessModeMaxGet(RTMP_ADAPTER *pAd)
 					__FUNCTION__, idx, mode_str, wdev->PhyMode));
 			os_free_mem(pAd, mode_str);
 		}
+#endif /* DBG */
 		wmode |= wdev->PhyMode;
 	}
 
+#ifdef DBG
 	mode_str = wmode_2_str(wmode);
 	if (mode_str)
 	{
@@ -409,6 +426,7 @@ static UCHAR RT_CfgMbssWirelessModeMaxGet(RTMP_ADAPTER *pAd)
 					__FUNCTION__, mode_str, wmode));
 		os_free_mem(pAd, mode_str);
 	}
+#endif /* DBG */
 	return wmode;
 }
 

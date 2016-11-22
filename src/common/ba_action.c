@@ -2281,9 +2281,6 @@ VOID Indicate_AMPDU_Packet_Hdr_Trns(
 	{
 		LONG WinStartSeq, TmpSeq;
 
-
-		printk("999999999\n");
-
 		TmpSeq = Sequence - (pBAEntry->BAWinSize) -1;
 		if (TmpSeq < 0)
 		{

@@ -581,8 +581,10 @@ BOOLEAN RTMPSoftDecryptCCMP(
 	INOUT PUCHAR pData,
 	INOUT UINT16 *DataLen);
 
+#ifdef DBG
 VOID CCMP_test_vector(
 	IN PRTMP_ADAPTER pAd,
 	IN INT input);
+#endif /* DBG */
 
 #endif

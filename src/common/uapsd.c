@@ -183,7 +183,9 @@ Note:
 VOID RtmpAsicSleepHandle(
     IN  PRTMP_ADAPTER       pAd)
 {
+#if defined(DOT11Z_TDLS_SUPPORT) || defined(CONFIG_STA_SUPPORT)
 	BOOLEAN FlgCanAsicSleep = TRUE;
+#endif
 
 
 #ifdef DOT11Z_TDLS_SUPPORT

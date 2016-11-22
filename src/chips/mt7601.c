@@ -710,10 +710,10 @@ VOID MT7601_WLAN_ChipOnOff(
 	IN BOOLEAN bResetWLAN)
 {
 	WLAN_FUN_CTRL_STRUC WlanFunCtrl = {.word=0};
-	int RET;
-
 
 #ifdef RTMP_MAC_USB
+	int RET;
+
 	if (IS_USB_INF(pAd)) {
 		RTMP_SEM_EVENT_WAIT(&pAd->hw_atomic, RET);
 		if (RET != 0) {
@@ -1105,7 +1105,9 @@ static VOID MT7601_AsicAntennaDefaultReset(
 
 static VOID MT7601_ChipBBPAdjust(RTMP_ADAPTER *pAd)
 {
+#if defined(DOT11_N_SUPPORT) && defined(DBG)
 	static char *ext_str[]={"extNone", "extAbove", "", "extBelow"};
+#endif
 	UCHAR rf_bw, ext_ch;
 
 #ifdef DOT11_N_SUPPORT
@@ -1656,7 +1658,9 @@ NTSTATUS MT7601DisableTxRx(
 #ifdef RTMP_USB_SUPPORT
 VOID MT7601UsbAsicRadioOff(RTMP_ADAPTER *pAd, UCHAR Stage)
 {
+#ifdef RTMP_MAC_USB
 	UINT32 ret;
+#endif
 	DBGPRINT(RT_DEBUG_TRACE, ("--> %s\n", __FUNCTION__));
 
 	if ( RTMP_TEST_FLAG(pAd, fRTMP_ADAPTER_IDLE_RADIO_OFF) )
@@ -2612,8 +2616,6 @@ BOOLEAN MT7601_GetTssiCompensationParam(
 	RTMP_BBP_IO_READ8_BY_REG_ID(pAd, BBP_R47, &BBPReg);	
 	if(BBPReg & 0x10)
 	{
-		//printk("#\n");
-
 		return FALSE;
 	}
 
@@ -3364,8 +3366,7 @@ VOID MT7601_Init(RTMP_ADAPTER *pAd)
 
 #ifdef HDR_TRANS_SUPPORT
 	if (1) {
-		UINT8 cnt = HT_RX_WCID_SIZE/HT_RX_WCID_OFFSET;
-		UINT32 RegVal;
+		//UINT32 RegVal;
 
 		/* enable TX/RX Header Translation */
 		RTMP_IO_WRITE32(pAd, HT_RX_WCID_EN_BASE , 0xFF);	/* all RX WCID enable */

@@ -28,6 +28,10 @@
 
 #include "rt_config.h"
 
+#ifndef DBG
+#define RTDebugLevel 0
+#endif
+
 /*
 ==========================================================================
 	Description:

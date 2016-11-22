@@ -55,7 +55,6 @@ VOID MT7601ATEAsicSwitchChannel(
 	UCHAR index = 0, Channel = 0;
 	/* added to prevent RF register reading error */
 	UCHAR RFValue = 0;
-	INT IdReg;
 	RTMP_CHIP_CAP *pChipCap = &pAd->chipCap;
 
 	SYNC_CHANNEL_WITH_QA(pATEInfo, &Channel);
@@ -428,7 +427,6 @@ BOOLEAN MT7601ATEGetTssiCompensationParam(
 	RTMP_BBP_IO_READ8_BY_REG_ID(pAd, BBP_R47, &BBPReg);	
 	if(BBPReg & 0x10)
 	{
-		printk("#\n");
 
 		return FALSE;
 	}
@@ -861,7 +859,6 @@ VOID MT7601ATERxVGAInit(
 	IN PRTMP_ADAPTER		pAd)
 {
 	UCHAR R66 = 0x14;
-	GET_LNA_GAIN(pAd);
 	
 	//RTMP_BBP_IO_WRITE8_BY_REG_ID(pAd, BBP_R66, 0x14);
 

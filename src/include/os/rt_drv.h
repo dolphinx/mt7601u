@@ -433,7 +433,11 @@ do{                                   \
 #define ASSERT(x)
 #endif /* DBG */
 
+#ifdef DBG
 void hex_dump(char *str, unsigned char *pSrcBufVA, unsigned int SrcBufLen);
+#else
+#define hex_dump(str, pSrcBufVA, SrcBufLen)
+#endif /* DBG */
 
 
 /*********************************************************************************************************

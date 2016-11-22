@@ -1030,6 +1030,7 @@ BOOLEAN RTMPSoftDecryptCCMP(
 					
 	========================================================================
 */
+#ifdef DBG
 VOID CCMP_test_vector(
 	IN PRTMP_ADAPTER pAd,
 	IN INT input)
@@ -1138,5 +1139,5 @@ VOID CCMP_test_vector(
 	printk("== CCMP test vector == \n");
 
 	}
-
+#endif /* DBG */
 

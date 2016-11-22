@@ -7223,7 +7223,9 @@ INT RT_CfgSetWirelessMode(
 
 UCHAR cfgmode_2_wmode(UCHAR cfg_mode);
 UCHAR wmode_2_cfgmode(UCHAR wmode);
+#ifdef DBG
 UCHAR *wmode_2_str(UCHAR wmode);
+#endif /* DBG */
 
 #ifdef CONFIG_AP_SUPPORT
 #ifdef MBSS_SUPPORT
@@ -8602,7 +8604,9 @@ INT	Show_MacTable_Proc(
 	IN	PRTMP_ADAPTER	pAd, 
 	IN	PSTRING			arg);
 
+#ifdef DBG
 INT show_devinfo_proc(RTMP_ADAPTER *pAd, PSTRING arg);
+#endif /* DBG */
 
 
 INT	Set_ResetStatCounter_Proc(

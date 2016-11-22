@@ -24,7 +24,7 @@
 MODULE_LICENSE("GPL");
 #endif /* OS_ABL_SUPPORT */
 
-#if LINUX_VERSION_CODE > KERNEL_VERSION(2,5,0)
+#if LINUX_VERSION_CODE > KERNEL_VERSION(2,5,0) && defined(DBG)
 /*
 ========================================================================
 Routine Description:

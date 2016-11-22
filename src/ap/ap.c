@@ -131,8 +131,7 @@ VOID APShutdown(
 VOID APStartUp(
 	IN PRTMP_ADAPTER pAd) 
 {
-	UINT32		offset, i;
-	UINT32		Value = 0;
+	UINT32		i;
 	BOOLEAN		bWmmCapable = FALSE;
 	UCHAR		apidx;
 	BOOLEAN		TxPreamble, SpectrumMgmt = FALSE;

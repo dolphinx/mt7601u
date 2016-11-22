@@ -23,8 +23,10 @@
 
 #ifdef OS_ABL_FUNC_SUPPORT
 
+#ifdef DBG
 EXPORT_SYMBOL(RTDebugLevel);
 EXPORT_SYMBOL(RTDebugFunc);
+#endif /* DBG */
 
 /* utility */
 EXPORT_SYMBOL(RtmpUtilInit);
@@ -169,7 +171,9 @@ EXPORT_SYMBOL(RtmpOsCopyToUser);
 EXPORT_SYMBOL(RtmpOsCmdUp);
 EXPORT_SYMBOL(RtmpOsCmdDisplayLenCheck);
 
+#ifdef DBG
 EXPORT_SYMBOL(hex_dump);
+#endif /* DBG */
 EXPORT_SYMBOL(RtmpOsSendWirelessEvent);
 EXPORT_SYMBOL(RTMP_GetCurrentSystemTime);
 EXPORT_SYMBOL(RTMP_GetCurrentSystemTick);

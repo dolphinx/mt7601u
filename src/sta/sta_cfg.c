@@ -7230,7 +7230,9 @@ VOID RTMPIoctlShow(
 
 
 	case SHOW_DEV_INFO:
+#ifdef DBG
 		show_devinfo_proc(pAd, NULL);
+#endif /* DBG */
 		wrq->u.data.length = 0;
 		break;
 
