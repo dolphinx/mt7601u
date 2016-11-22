@@ -39,10 +39,24 @@ USB_DEVICE_ID rtusb_dev_id[] = {
 	{USB_DEVICE(0x148f, 0x7650)}, /* MT7650 */
 #ifdef MT7601U
 	{USB_DEVICE(0x148f,0x6370)}, /* Ralink 6370 */
-	{USB_DEVICE(0x2955,0x1001)}, /* xiaodu wifi */
-	{USB_DEVICE(0x148f,0x7601)}, /* MT 6370 */
+	{USB_DEVICE(0x148f,0x7601)}, /* TP-LINK TL-WN727N v4 */
+	{USB_DEVICE(0x148f,0x760a)}, /* MT7601U */
 	{USB_DEVICE(0x148f,0x760b)}, /* 360 wifi 2 */
+	{USB_DEVICE(0x148f,0x760c)}, /* MT7601U */
+	{USB_DEVICE(0x148f,0x760d)}, /* MT7601U */
+	{USB_DEVICE(0x0b05,0x17d3)}, /* ASUS USB-N10 v2  */
+	{USB_DEVICE(0x13d3,0x3431)}, /* AzureWave (IMC) */
+	{USB_DEVICE(0x13d3,0x3434)}, /* AzureWave (IMC) */
+	{USB_DEVICE(0x2001,0x3d04)}, /* D-Link DWA-127 rev B1 */
 	{USB_DEVICE(0x2717,0x4106)}, /* XiaoMi wifi */
+	{USB_DEVICE(0x2955,0x0001)}, /* XiaoDu wifi */
+	{USB_DEVICE(0x2955,0x1001)}, /* XiaoDu wifi */
+	{USB_DEVICE(0x2955,0x1003)}, /* NuoMi wifi */
+	{USB_DEVICE(0x2a5f,0x1000)}, /* Tencent wifi */
+	{USB_DEVICE(0x0e8d,0x760a)}, /* MT7601U */
+	{USB_DEVICE(0x0e8d,0x760b)}, /* MT7601U */
+	{USB_DEVICE(0x0e8d,0x7610)}, /* Aukey wifi */
+	{USB_DEVICE(0x7392,0x7710)}, /* MT7601U */
 #endif /* MT7601U */
 	{ }/* Terminating entry */
 };
