@@ -153,7 +153,7 @@ VOID RtmpPrepareHwNullFrame(
 
 		if (Index == 0)
 			RTMP_IO_WRITE32(pAd, pAd->NullBufOffset[0] + i, longValue);
-		else if (Index == 1)
+		else// if (Index == 1)
 			RTMP_IO_WRITE32(pAd, pAd->NullBufOffset[1] + i, longValue);
 
 		//RTMP_IO_WRITE32(pAd, 0xB700 + i, longValue);
@@ -219,7 +219,7 @@ VOID RTMPHwSendNullFrame(
 		Data &= 0xffffff1f; /* Null 2 frame buffer select bit[5:7]=0 */
 		RTMP_IO_WRITE32(pAd, PBF_CFG, Data);
 	}
-	else if (Index == 1)
+	else// if (Index == 1)
 	{
 		ptr = pAd->NullFrBuf + TXWISize;
 #ifdef RT_BIG_ENDIAN

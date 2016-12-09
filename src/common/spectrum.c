@@ -33,7 +33,7 @@
 DOT11_REGULATORY_INFORMATION USARegulatoryInfo[] = 
 {
 /*  "regulatory class"  "number of channels"  "Max Tx Pwr"  "channel list" */
-    {0,	                {0,                   0,           {0}}}, /* Invlid entry*/
+    {0,	                {0,                   0,           {0}}}, /* Invalid entry*/
     {1,                 {4,                   16,           {36, 40, 44, 48}}}, 
     {2,                 {4,                   23,           {52, 56, 60, 64}}}, 
     {3,                 {4,                   29,           {149, 153, 157, 161}}}, 
@@ -119,6 +119,11 @@ UINT8 GetRegulatoryMaxTxPwr(
 	{
 		MaxRegulatoryClassNum = USA_REGULATORY_INFO_SIZE;
 		pRegulatoryClass = &USARegulatoryInfo[0];
+	}
+	else if (strncmp(pCountry, "EU", 2) == 0)
+	{
+		MaxRegulatoryClassNum = EU_REGULATORY_INFO_SIZE;
+		pRegulatoryClass = &EuropeRegulatoryInfo[0];
 	}
 	else if (strncmp(pCountry, "JP", 2) == 0)
 	{
@@ -802,7 +807,7 @@ static UINT64 GetCurrentTimeStamp(
 		
 	Parametrs:
 	
-	Return	: Current Time Stamp.
+	Return	: Current Transmit Power.
 	==========================================================================
  */
 static UINT8 GetCurTxPwr(
@@ -815,11 +820,11 @@ static UINT8 GetCurTxPwr(
 /*
 	==========================================================================
 	Description:
-		Get Current Transmit Power.
+		
 		
 	Parametrs:
 	
-	Return	: Current Time Stamp.
+	Return	:
 	==========================================================================
  */
 VOID InsertChannelRepIE(
@@ -845,6 +850,16 @@ VOID InsertChannelRepIE(
 			return;
 		}
 		pChannelSet = &USARegulatoryInfo[RegulatoryClass].ChannelSet;
+	}
+	else if (strncmp(pCountry, "EU", 2) == 0)
+	{
+		if (RegulatoryClass >= EU_REGULATORY_INFO_SIZE)
+		{
+			DBGPRINT(RT_DEBUG_ERROR, ("%s: EU Unknown Requlatory class (%d)\n",
+						__FUNCTION__, RegulatoryClass));
+			return;
+		}
+		pChannelSet = &EuropeRegulatoryInfo[RegulatoryClass].ChannelSet;
 	}
 	else if (strncmp(pCountry, "JP", 2) == 0)
 	{

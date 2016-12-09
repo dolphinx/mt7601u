@@ -330,7 +330,9 @@ VOID APUpdateBeaconFrame(RTMP_ADAPTER *pAd, INT apidx)
 	MULTISSID_STRUCT *pMbss;
 	COMMON_CONFIG *pComCfg;
 	UCHAR PhyMode;
+#if defined(HOSTAPD_SUPPORT) || defined(WSC_AP_SUPPORT)
 	BOOLEAN bHasWpsIE = FALSE;
+#endif
 	UINT  i;
 	HTTRANSMIT_SETTING	BeaconTransmit = {.word = 0};   /* MGMT frame PHY rate setting when operatin at Ht rate. */
 
@@ -410,6 +412,7 @@ VOID APUpdateBeaconFrame(RTMP_ADAPTER *pAd, INT apidx)
     }
 #endif /* WSC_AP_SUPPORT */
 
+#if defined(HOSTAPD_SUPPORT) || defined(WSC_AP_SUPPORT)
 	if (bHasWpsIE)
     {
 		ULONG WscTmpLen = 0;
@@ -419,6 +422,7 @@ VOID APUpdateBeaconFrame(RTMP_ADAPTER *pAd, INT apidx)
                               END_OF_ARGS);
 		FrameLen += WscTmpLen;		  
     }
+#endif
 
 #ifdef WSC_AP_SUPPORT
     if ((pAd->ApCfg.MBSSID[apidx].WscControl.WscConfMode != WSC_DISABLE) &&

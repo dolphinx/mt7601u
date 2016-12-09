@@ -4768,7 +4768,7 @@ if (0 /*!(pRxInfo->Mcast || pRxInfo->Bcast)*/){
 	{
 		pEntry = PACInquiry(pAd, pRxWI->RxWIWirelessCliID);
 
-		/*	can't find associated STA entry then filter invlid data frame */
+		/*	can't find associated STA entry then filter invalid data frame */
 		if (!pEntry)
 		{		
 			goto err;
@@ -5243,7 +5243,7 @@ if (0 /*!(pRxInfo->Mcast || pRxInfo->Bcast)*/){
 	{
 		pEntry = PACInquiry(pAd, pRxWI->RxWIWirelessCliID);
 
-		/*	can't find associated STA entry then filter invlid data frame */
+		/*	can't find associated STA entry then filter invalid data frame */
 		if (!pEntry)
 		{		
 			goto err;

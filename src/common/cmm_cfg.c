@@ -468,7 +468,7 @@ INT RT_CfgSetMbssWirelessMode(RTMP_ADAPTER *pAd, PSTRING arg)
 	
 	if (WMODE_CAP_5G(wmode) && WMODE_CAP_2G(wmode))
 	{
-		DBGPRINT(RT_DEBUG_ERROR, ("AP cannot support 2.4G/5G band mxied mode!\n"));
+		DBGPRINT(RT_DEBUG_ERROR, ("AP cannot support 2.4G/5G band mixed mode!\n"));
 		return FALSE;
 	}
 

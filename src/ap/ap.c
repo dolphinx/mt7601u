@@ -207,7 +207,7 @@ VOID APStartUp(
 											SpectrumMgmt);
 
 		
-		if (bWmmCapable == TRUE)
+		//if (bWmmCapable == TRUE)
 		{
 			/*
 				In WMM spec v1.1, A WMM-only AP or STA does not set the "QoS"
@@ -616,8 +616,8 @@ DBGPRINT(RT_DEBUG_OFF, ("%s(): AP Set CentralFreq at %d(Prim=%d, HT-CentCh=%d, V
 
 #ifdef DOT1X_SUPPORT
 		/* Send singal to daemon to indicate driver had restarted */
-		if ((pMbss->AuthMode == Ndis802_11AuthModeWPA) || (pMbss->AuthMode == Ndis802_11AuthModeWPA2)
-        		|| (pMbss->AuthMode == Ndis802_11AuthModeWPA1WPA2) || (pMbss->IEEE8021X == TRUE))
+		//if ((pMbss->AuthMode == Ndis802_11AuthModeWPA) || (pMbss->AuthMode == Ndis802_11AuthModeWPA2)
+        //		|| (pMbss->AuthMode == Ndis802_11AuthModeWPA1WPA2) || (pMbss->IEEE8021X == TRUE))
 		{
 			;/*bDot1xReload = TRUE; */
     	}
@@ -1672,8 +1672,6 @@ VOID APUpdateCapabilityAndErpIe(
 	}
 	else if (pAd->CommonCfg.UseBGProtection == 1)   
 		ErpIeContent |= 0x02;
-	else
-		;
 
 	bUseBGProtection = (pAd->CommonCfg.UseBGProtection == 1) ||    /* always use */
 						((pAd->CommonCfg.UseBGProtection == 0) && ERP_IS_USE_PROTECTION(ErpIeContent));

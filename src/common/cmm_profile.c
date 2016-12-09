@@ -1896,7 +1896,7 @@ static void HTParametersHook(
 
 
 
-	/* Tx A-MSUD ?*/
+	/* Tx A-MSDU ?*/
     if (RTMPGetKeyParameter("HT_AMSDU", pValueStr, 25, pInput, TRUE))
 	{
 		Value = simple_strtol(pValueStr, 0, 10);
@@ -1923,7 +1923,7 @@ static void HTParametersHook(
 		else
 		{
 			pAd->CommonCfg.BACapability.field.MpduDensity = 4;
-			DBGPRINT(RT_DEBUG_TRACE, ("HT: MPDU Density = %d (Default)\n", 4));
+			DBGPRINT(RT_DEBUG_TRACE, ("HT: MPDU Density = 4 (Default)\n"));
 		}
 	}
 
@@ -1941,13 +1941,13 @@ static void HTParametersHook(
 		{		
 			pAd->CommonCfg.REGBACapability.field.RxBAWinLimit = Value;
 			pAd->CommonCfg.BACapability.field.RxBAWinLimit = Value;
-			DBGPRINT(RT_DEBUG_TRACE, ("HT: BA Windw Size = %d\n", (INT) Value));
+			DBGPRINT(RT_DEBUG_TRACE, ("HT: BA Window Size = %d\n", (INT) Value));
 		}
 		else
 		{
             pAd->CommonCfg.REGBACapability.field.RxBAWinLimit = 64;
 			pAd->CommonCfg.BACapability.field.RxBAWinLimit = 64;
-			DBGPRINT(RT_DEBUG_TRACE, ("HT: BA Windw Size = 64 (Defualt)\n"));
+			DBGPRINT(RT_DEBUG_TRACE, ("HT: BA Window Size = 64 (Defualt)\n"));
 		}
 
 	}
@@ -2042,7 +2042,7 @@ static void HTParametersHook(
 		DBGPRINT(RT_DEBUG_TRACE, ("HT: Ext Channel = %s\n", (Value==0) ? "BELOW" : "ABOVE" ));
 	}
 
-	/* MSC*/
+	/* MCS*/
 	if (RTMPGetKeyParameter("HT_MCS", pValueStr, 50, pInput, TRUE))
 	{
 #ifdef CONFIG_AP_SUPPORT
@@ -2193,7 +2193,7 @@ static void HTParametersHook(
 			pAd->CommonCfg.HT_DisallowTKIP = FALSE;
 		}		
 
-		DBGPRINT(RT_DEBUG_TRACE, ("HT: Disallow TKIP mode = %s\n", (pAd->CommonCfg.HT_DisallowTKIP == TRUE) ? "ON" : "OFF" ));
+		DBGPRINT(RT_DEBUG_TRACE, ("HT: Disallow TKIP mode = %s\n", (Value == 1) ? "ON" : "OFF" ));
 	}
 
 #ifdef DOT11_N_SUPPORT
@@ -2287,7 +2287,7 @@ static void HTParametersHook(
 				Value = simple_strtol(pValueStr, 0, 10);
 				pAd->CommonCfg.bBssCoexEnable = ((Value == 1) ? TRUE : FALSE);
 
-				DBGPRINT(RT_DEBUG_TRACE, ("HT: 20/40 BssCoexSupport = %s\n", (pAd->CommonCfg.bBssCoexEnable == TRUE) ? "ON" : "OFF" ));
+				DBGPRINT(RT_DEBUG_TRACE, ("HT: 20/40 BssCoexSupport = %s\n", (Value == 1) ? "ON" : "OFF" ));
 			}
 
 			

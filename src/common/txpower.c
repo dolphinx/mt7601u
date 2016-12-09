@@ -630,31 +630,30 @@ VOID AsicPercentageDeltaPower(
 		We lower TX power here according to the percentage specified from UI.
 	*/
 	
-	if (pAd->CommonCfg.TxPowerPercentage >= 100) /* AUTO TX POWER control */
+	if (pAd->CommonCfg.TxPowerPercentage > 90) /* 91 ~ 100% & AUTO, treat as 100% in terms of mW */
 	{
 #ifdef CONFIG_STA_SUPPORT
-		if ((pAd->OpMode == OPMODE_STA)
-#ifdef P2P_SUPPORT
-			&& (!P2P_GO_ON(pAd))
-#endif /* P2P_SUPPORT */
-		)
+		if (pAd->CommonCfg.TxPowerPercentage >= 100) /* AUTO TX POWER control */
 		{
-			/* To patch high power issue with some APs, like Belkin N1.*/
-			if (Rssi > -35)
+			if ((pAd->OpMode == OPMODE_STA)
+#ifdef P2P_SUPPORT
+				&& (!P2P_GO_ON(pAd))
+#endif /* P2P_SUPPORT */
+			)
 			{
-				*pDeltaPwr -= 12;
+				/* To patch high power issue with some APs, like Belkin N1.*/
+				if (Rssi > -35)
+				{
+					*pDeltaPwr -= 12;
+				}
+				else if (Rssi > -40)
+				{
+					*pDeltaPwr -= 6;
+				}
 			}
-			else if (Rssi > -40)
-			{
-				*pDeltaPwr -= 6;
-			}
-			else
-				;
 		}
 #endif /* CONFIG_STA_SUPPORT */
 	}
-	else if (pAd->CommonCfg.TxPowerPercentage > 90) /* 91 ~ 100% & AUTO, treat as 100% in terms of mW */
-		;
 	else if (pAd->CommonCfg.TxPowerPercentage > 60) /* 61 ~ 90%, treat as 75% in terms of mW		 DeltaPwr -= 1; */
 	{
 		*pDeltaPwr -= 1;
